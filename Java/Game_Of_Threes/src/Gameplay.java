@@ -7,10 +7,11 @@ public class Gameplay {
 		
 		System.out.println("Enter number or q to quit: ");
 		while(scan.hasNext()){
-			if (scan.next().equalsIgnoreCase("q")){
+			String tmp = scan.next();
+			if (tmp.equalsIgnoreCase("q")){
 				System.exit(0);
 			}
-			int num = scan.nextInt();
+			int num = Integer.parseInt(tmp);
 			while(num != 1){
 				int adjustment = 0;
 				if (num % 3 == 1){
