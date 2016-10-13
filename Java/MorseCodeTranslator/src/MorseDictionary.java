@@ -89,5 +89,9 @@ public class MorseDictionary{
 		dict.put("-..-.","/");
 		dict.put("-....-","-");
 	}
+	public String get(String key) {
+		String tmp = this.get(key);
+		return tmp;
+	}
 	
 }

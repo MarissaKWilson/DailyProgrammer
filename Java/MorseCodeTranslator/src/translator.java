@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class translator {
-	public static void Main(String[] args){
+	public static void main(String[] args){
 		Scanner scan = new Scanner(System.in);
 		
 		System.out.print("Enter text or morse code to be translated: ");
@@ -13,7 +13,7 @@ public class translator {
 		} else{
 			translation = TranslateFromEnglish(phrase);
 		}
-		
+		System.out.println(translation);
 	}
 	
 	public static String TranslateFromMorse(String[] phrase){
