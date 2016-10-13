@@ -7,39 +7,40 @@ public class translator {
 		
 		System.out.print("Enter text or morse code to be translated: ");
 		String str = scan.nextLine();
-		String[] phrase = str.split(" ");
 		String translation = "Unable to translate";
 		if (str.startsWith(".") || str.startsWith("-")){
-			translation = TranslateFromMorse(phrase, dictionary);
+			translation = TranslateFromMorse(str, dictionary);
 		} else{
-			translation = TranslateFromEnglish(phrase, dictionary);
+			translation = TranslateFromEnglish(str, dictionary);
 		}
 		System.out.println(translation);
 	}
 	
-	public static String TranslateFromMorse(String[] phrase, MorseDictionary dictionary){
+	public static String TranslateFromMorse(String str, MorseDictionary dictionary){
+		String[] phrase = str.split("\\s");
 		String translation = "";
-		for (int i = 0; i > phrase.length; i++){
+		for (int i = 0; i < phrase.length; i++){
 			String key = phrase[i];
 			if (key.startsWith(" ")){
 				translation.concat(" ");
 				key = key.trim();
 			}
-			String value = dictionary.get(key);
 			translation.concat(dictionary.get(key));
 		}	
 		return translation;
 	}
 	
-	public static String TranslateFromEnglish(String[] phrase, MorseDictionary dictionary){
+	public static String TranslateFromEnglish(String str, MorseDictionary dictionary){
+		str = str.toUpperCase();
+		char[] letter = str.toCharArray();
 		String translation = "";
-		for (int i = 0; i > phrase.length; i++){
-			String word = phrase[i].toUpperCase();
-			for (int e = 0; e > word.length(); e++){
-				char key = word.charAt(e);
-				String value = dictionary.get(key);
+		for (int i = 0; i < letter.length; i++){
+			
+			char key = letter[i];
+			if (key == ' '){
+				translation.concat(" ");
+			} else {
 				translation.concat(dictionary.get(key));
-				translation.concat(" ");	
 			}
 			translation.concat(" ");
 		}

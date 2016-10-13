@@ -1,8 +1,9 @@
 import java.util.HashMap;
 
 public class MorseDictionary{
-	public  MorseDictionary(){
-		HashMap<Object, String> dict = new HashMap<Object,String>();
+	HashMap<Object, String> dict = new HashMap<Object,String>();
+	
+	public HashMap MorseDictionary(){
 		//From english to morse
 		dict.put('A',".-");
 		dict.put('B',"-...");
@@ -88,9 +89,10 @@ public class MorseDictionary{
 		dict.put("..--..","?");
 		dict.put("-..-.","/");
 		dict.put("-....-","-");
+		return dict;
 	}
 	public String get(Object key) {
-		String tmp = this.get(key);
+		String tmp = dict.get(key);
 		return tmp;
 	}
 	
